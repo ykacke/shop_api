@@ -1,4 +1,4 @@
-# product/views.py
+
 from django.http import JsonResponse
 from django.views import View
 from .models import Category, Product, Review
@@ -11,7 +11,7 @@ from django.db.models import Count
 
 @api_view(['GET'])
 def category_list(request):
-    categories = Category.objects.annotate(products_count=Count('product'))  # Аннотируем количество товаров
+    categories = Category.objects.annotate(products_count=Count('product'))
     data = [{
         'id': category.id,
         'name': category.name,
